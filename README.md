@@ -8,5 +8,5 @@ add job in queue
 
 \Resque::setBackend('localhost:6379');
 $args = array( );
-\Resque::enqueue('healyoo', 'Resquezf2\Model\Job', $args );
+\Resque::enqueue('zf2-php-resque', 'Resquezf2\Model\Job', $args );
                 
