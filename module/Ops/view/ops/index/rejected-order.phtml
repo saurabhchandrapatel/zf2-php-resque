@@ -1,0 +1,100 @@
+<div class="col-xs-12">
+
+  <?php if(count($this->orders)){  
+  ?>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Orders</h3>
+                  <div class="box-tools">
+                    <form action="/ops/index/index">
+                    <div class="input-group">
+                      <input type="text" name="search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"> 
+
+                      <select style="width: 80px;" class="form-control input-sm pull-right">
+                        <option> id </option>
+                        <option> name </option> 
+                      </select>
+                      
+                      <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table">
+                    
+                    <tbody><tr>
+                      <th>Order ID</th> 
+                      <th>Order Date</th> 
+                      <th>Payment Mode</th> 
+                      <th>City</th> 
+                      <th>Sub-Order</th>  
+                    </tr>
+                    <?php  
+                    foreach ($this->orders as $key => $value) {   
+                      ?> 
+                    <tr>
+                      <td><a href="/ops/index/view?id=<?php echo $key; ?>"><?php echo $key; ?> </a> </td>
+                     
+                      <td><b><?php echo $value[0]['OrderDate']->format('d-m-Y H:i:s'); ?></b></td>  
+                     <td><span class="badge bg-blue"><?php echo $value[0]['Paymentmode']; ?></span> </td> 
+                     <td><span class="badge bg-red"><?php echo ucfirst($value[0]['city']); ?></span> </td> 
+
+
+                      <td> 
+                     <table class="table">
+                    <tbody>
+                    <?php foreach ($value as $key => $suborder) { 
+                     ?> 
+                        <tr> 
+                          <td><a href="/ops/index/sub-order?id=<?php echo $suborder['OrderID']."-".$suborder['suborder']->id; ?>"><?php echo $suborder['suborder']->product->name; ?></a></td> 
+                          <td><span class="badge bg-green"> <?php echo "Rs.".$suborder['suborder']->price * $suborder['suborder']->qty."/-"; ?> </span></td>
+                          <td><span class="badge bg-red"> <?php echo ucfirst($suborder['suborder']->status); ?> </span></td>
+                        </tr> 
+                    <?php } ?>  
+                  </tbody></table> 
+                      </td>  
+                    </tr>  
+                  <?php } ?>  
+                  </tbody>
+
+                  </table>
+                  
+                </div>
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <?php 
+                    //var_dump($this->pre_page); exit();
+                      if($this->pre_page >= 1 ){ ?>
+                          <li><a href="/ops/index/index?page=<?php echo $this->pre_page; ?>">«</a></li>
+                     <?php } ?> 
+
+                    <?php for ( $i = 1; $i < $this->totalpage ; $i++ ) { ?>
+                       <li><a href="/ops/index/index?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                    <?php }?> 
+
+                    <?php 
+                      if($this->next_page < $this->totalpage ){ ?>
+                          <li><a href="/ops/index/index?page=<?php echo $this->next_page; ?>">»</a></li>
+                     <?php } ?>
+
+                    
+                  </ul>
+                </div>
+
+              </div><!-- /.box -->
+
+            <?php } else{ ?>
+
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+                     There is No order for Ops teams.
+                </div>
+
+
+              <?php } ?>
+            </div>
+ 
