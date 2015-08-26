@@ -5,7 +5,7 @@
     "license":      "BSD-3-Clause",
     "homepage":     "https://github.com/saurabhaec/zf2-php-resque",
     "keywords": [
-        "ZF2 PHP Resque Worker", 
+        "ZF2 PHP Resque Worker"    
     ],
     "authors": [
         {
