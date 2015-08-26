@@ -14,8 +14,7 @@
             "homepage":  "http://aktel.in/",
             "role":      "Developer"
         }, 
-    ],
-    "minimum-stability": "dev",
+    ], 
     "require": {
         "php": ">=5.3.3" 
     }
