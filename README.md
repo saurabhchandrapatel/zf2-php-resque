@@ -9,8 +9,13 @@
 <b>Instalation</b>
 
 <ol>
+
+
 <li>
 move file  <strong>resquezf2.global.php.dist</strong> from config folder to globle config folder and rename file to <strong>resquezf2.global.php</strong> 
+</li>
+<li>
+  add <strong>Resquezf2</strong> in application.config.php file at moduel section to load this moudle.
 </li>
 <li>
 load Resque Library; 
