@@ -1,0 +1,22 @@
+{
+    "name":         "saurabhaec/zf2-php-resque",
+    "description":  "PHP Resque Worker in zf2",
+    "type":         "library",
+    "license":      "BSD-3-Clause",
+    "homepage":     "https://github.com/saurabhaec/zf2-php-resque",
+    "keywords": [
+        "ZF2 PHP Resque Worker", 
+    ],
+    "authors": [
+        {
+            "name":      "Saurabh Chandra Patel",
+            "email":     "vsaurabh.aec@gmail.com",
+            "homepage":  "http://aktel.in/",
+            "role":      "Developer"
+        }, 
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3" 
+    }
+}
