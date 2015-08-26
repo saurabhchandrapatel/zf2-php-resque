@@ -5,7 +5,7 @@
     "license": "BSD-3-Clause",
     "homepage": "https://github.com/saurabhaec/zf2-php-resque",
     "keywords": [
-        "ZF2 PHP Resque Worker"
+        "zf2"
     ],
     "authors": [
         {
@@ -15,8 +15,26 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "dev-master",
+    
     "require": {
         "php": ">=5.3.3"
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Resquezf2": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
     }
+
+
+
 }
